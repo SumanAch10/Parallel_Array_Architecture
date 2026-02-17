@@ -10,8 +10,8 @@ public class GroceryManagement {
         System.out.println("4:Exit: ");
     }
 
-        public static void addInventory(String[] names, double[] prices, int[] stocks){
-        Scanner sc = new Scanner(System.in);
+        public static void addInventory(Scanner sc,String[] names, double[] prices, int[] stocks){
+        // Scanner sc = new Scanner(System.in);
         for(int i = 0;i<names.length;i++){
             if(names[i] == null){
                 String item_name;
@@ -39,18 +39,13 @@ public class GroceryManagement {
                 System.out.println("Price: "+prices[i]);
                 System.out.println("Stocks: "+stocks[i]);
             }
-            else{
-                break;
-            }
         }
     }
 
     public static void restockItem(String[] names, int[] stocks, String target, int amount){
         System.out.println("target string: "+target);
         System.out.println("Name: "+names[0]);
-        System.out.println(names[0] == target);
         for(int i = 0;i<names.length;i++){
-            System.out.println("Inside the loop");
             if(names[i]!=null && names[i].equals(target)){
                 stocks[i] = stocks[i] + amount;
                 break;
@@ -78,7 +73,7 @@ public class GroceryManagement {
             String name;
             double price;
             System.out.println("Inside the add option");
-            addInventory(item_names,item_prices,item_stocks);
+            addInventory(sc,item_names,item_prices,item_stocks);
         }
         else if (c == '2'){
             printInventory(item_names,item_prices,item_stocks);
@@ -103,7 +98,4 @@ public class GroceryManagement {
         c = sc.next().charAt(0);
     }
     }
-// aayushraj1425@gmail.com
-
-    // System.out.println();
 }
