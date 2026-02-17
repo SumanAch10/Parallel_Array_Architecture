@@ -17,11 +17,11 @@ public class GroceryManagement {
                 String item_name;
                 double item_price;
                 int item_stock;
-                System.out.println("------Enter the name: -------");
+                System.out.println("------Enter the name:-------");
                 item_name = sc.next();
-                System.out.println("------Enter the price: -------");
+                System.out.println("------Enter the price:-------");
                 item_price = sc.nextDouble();
-                System.out.println("------Enter the number of stocks: -------");
+                System.out.println("------Enter the number of stocks:-------");
                 item_stock = sc.nextInt();
                 names[i] = item_name;
                 prices[i] = item_price;
@@ -31,7 +31,7 @@ public class GroceryManagement {
         }
     }
     public static void printInventory(String[] names, double[] prices, int[] stocks){
-        System.out.println(".........................INVENTORY...................");
+        System.out.println(".........................INVENTORY.....................");
         for(int i = 0;i<names.length;i++){
             if(names[i]!=null){
                 System.out.println("................Item"+(i+1)+"................");
@@ -46,9 +46,12 @@ public class GroceryManagement {
     }
 
     public static void restockItem(String[] names, int[] stocks, String target, int amount){
-        int i = 0;
-        for(int i = 0;i<naems.length;i++){
-            if(names[i] == target){
+        System.out.println("target string: "+target);
+        System.out.println("Name: "+names[0]);
+        System.out.println(names[0] == target);
+        for(int i = 0;i<names.length;i++){
+            System.out.println("Inside the loop");
+            if(names[i]!=null && names[i].equals(target)){
                 stocks[i] = stocks[i] + amount;
                 break;
             }
@@ -82,7 +85,13 @@ public class GroceryManagement {
         }
 
         else if(c == '3'){
-
+            String target;
+            int amount;
+            System.out.println("Enter the target:-------");
+            target = sc.next();
+            System.out.println("Enter the amount: ");
+            amount = sc.nextInt();
+            restockItem(item_names,item_stocks,target,amount);
         }
         else if(c == '4'){
             break;
